@@ -53,7 +53,7 @@ body {
   align-items: center;
   text-align: center;
   
-  margin: 3.2rem 5.1rem 12.5rem;
+  margin: 3.2rem 5.1rem 5rem;
   
   color: #ffffff;
 }
@@ -92,8 +92,8 @@ header h1 {
 }
 
 main {
-  max-width: 38.4rem;
   display: grid;
+  justify-items: center;
   gap: 3.2rem;
 }
 
@@ -107,20 +107,21 @@ main img {
 }
 
 main :nth-child(odd) img {
-  width: 32rem;
+  width: 100%;
   height: 25rem;
   object-fit: cover;
   border-radius: 2.0rem;
 }
 
 main :nth-child(even) img {
-  width: 32rem;
+  width: 100%;
   height: 45rem;
   object-fit: cover;
   border-radius: 2.0rem;  
 }
 
 .card {
+  width: 100%;
   transition: all 400ms;
   animation: downtop 1s .3s backwards;
 }
@@ -200,42 +201,46 @@ footer a:hover {
   }
 
   main :nth-child(odd) img {
-    width: 30rem;
+    width: 100%;
     height: 30rem;
   }
   
   main :nth-child(even) img {
-    width: 30rem;
+    width: 100%;
     height: 30rem;
   }  
 }
 
-@media (min-width:1050px) {
+@media (min-width: 900px) {
   .page {
     max-width: 128rem;
-    padding: 0 5rem;
   }
 
   main :nth-child(odd) img {
-    width: 22rem;
+    width: 100%;
     height: 15rem;
   }
   
   main :nth-child(even) img {
-    width: 22rem;
+    width: 100%;
     height: 35rem;
   }
 
   .container {
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+    "header main"
+    "header footer";
+    grid-template-columns: 1fr 3fr;
   }
 
   header {
-    max-width: 37.7rem;
+    grid-area: header;
   }
 
   main {
-    margin: 6.4rem 6.4rem;
+    grid-area: main;
+    margin-top: 5rem;
     width: 100%;
     max-width: 1000px;
     grid-template-areas: 
@@ -245,4 +250,8 @@ footer a:hover {
     grid-template-rows: 150px 168px 150px;
   }
 
+  footer {
+    grid-area: footer;
+    display: block;
+  }
 }
